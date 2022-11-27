@@ -16,6 +16,7 @@ jobs:
     name: build front-end
     runs-on: ubuntu-18.04
     steps:
+        - uses: actions/checkout@v1
         - name: yarn install, build and test
           run: |
             cd front-end
@@ -26,6 +27,7 @@ jobs:
     name: build back-end
     runs-on: ubuntu-18.04
     steps:
+        - uses: actions/checkout@v1
         - name: yarn install, build and test
           run: |
             cd back-end
