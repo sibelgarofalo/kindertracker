@@ -19,3 +19,12 @@ The Front-end is built using `yarn` and you can run it and build it using the fo
  2. download the packages `yarn install`
  3. start the application on port 3000 `yarn start`
  4. open the application on [http://localhost:3000](http://localhost:3000)
+
+### Run Back-end
+
+The Back-end is built using `yarn` and you can run it and build it using the following steps:
+
+ 1. enter the folder `cd back-end`
+ 2. download the packages `yarn install`
+ 3. start the application on port 4000 `yarn start`
+ 4. open the application on [http://localhost:4000](http://localhost:4000)
