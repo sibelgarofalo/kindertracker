@@ -8,6 +8,7 @@ jobs:
     name: initialize
     runs-on: ubuntu-18.04
     steps:
+        - uses: actions/checkout@v1
         - name: init
           run: |
             ls -la
