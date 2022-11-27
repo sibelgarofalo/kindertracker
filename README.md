@@ -2,6 +2,8 @@
 
 Kinder Tracker is a web and mobile application used by Swiss Primary schools to share content and communications with the student's families
 
+[![.github/workflows/main.yml](https://github.com/sibelgarofalo/kindertracker/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/sibelgarofalo/kindertracker/actions/workflows/main.yml)
+
 ## Getting started
 
 The application is composed by two tiers:
