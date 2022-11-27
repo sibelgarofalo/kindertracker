@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+    - main
+    - release/*
+jobs:
+  build_frontend:
+    name: build front-end
+    runs-on: ubuntu-18.04
+    steps:
+        - name: npm install, build and test
+          run: |
+            cd front-end
+            yarn install
+            yarn run build --if-present
+            yarn test
+  build_backend:
+    name: build back-end
+    runs-on: ubuntu-18.04
+    steps:
+        - name: npm install, build and test
+          run: |
+            cd back-end
+            yarn install
+            yarn run build --if-present
+            yarn test  
