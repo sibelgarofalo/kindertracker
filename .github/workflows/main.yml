@@ -26,11 +26,14 @@ jobs:
     name: docker front-end
     runs-on: ubuntu-18.04
     steps:
-        - uses: actions/checkout@v1
-        - name: docker frontend
-          run: |
-            cd front-end
-            docker build . --tag kindertracker/frontend
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        - name: Log into registry
+          uses: docker/login-action@v1
+          with:
+            registry: ${{ secrets.ACR_ENDPOINT }}
+            username: ${{ secrets.ACR_USERNAME }}
+            password: ${{ secrets.ACR_PASSWORD }}
   build_backend:
     name: build back-end
     runs-on: ubuntu-18.04
