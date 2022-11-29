@@ -25,6 +25,7 @@ jobs:
   restart_frontend:
     name: restart front-end
     runs-on: ubuntu-18.04
+    needs: docker_frontend
     steps:
         - uses: azure/login@v1
           with:
