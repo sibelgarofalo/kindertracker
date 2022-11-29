@@ -12,25 +12,12 @@ jobs:
         - name: init
           run: |
             ls -la
-  build_frontend:
-    name: build front-end
-    runs-on: ubuntu-18.04
-    steps:
-        - uses: actions/checkout@v1
-        - name: yarn install, build and test
-          run: |
-            cd front-end
-            yarn install
-            yarn run build --if-present
   docker_frontend:
     name: docker front-end
     runs-on: ubuntu-18.04
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-        - name: go into frontend path
-          run: |
-            cd front-end
         - name: Log into registry
           uses: docker/login-action@v1
           with:
@@ -38,16 +25,8 @@ jobs:
             username: ${{ secrets.ACR_USERNAME }}
             password: ${{ secrets.ACR_PASSWORD }}
         - name: Build & Push
-          uses: docker/build-push-action@v2
+          uses: docker/build-push-action@v3
           with:
+            context: ./front-end
             push: true
             tags: ${{ secrets.ACR_ENDPOINT }}/frontend:latest
-  build_backend:
-    name: build back-end
-    runs-on: ubuntu-18.04
-    steps:
-        - uses: actions/checkout@v1
-        - name: yarn install, build and test
-          run: |
-            cd back-end
-            
