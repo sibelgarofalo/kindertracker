@@ -22,3 +22,12 @@ jobs:
             context: ./front-end
             push: true
             tags: ${{ secrets.ACR_ENDPOINT }}/frontend:latest
+  restart_frontend:
+    name: restart front-end
+    runs-on: ubuntu-18.04
+    steps:
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        - run: |
+            az container list
