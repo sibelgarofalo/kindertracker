@@ -30,3 +30,9 @@ The Back-end is built using `yarn` and you can run it and build it using the fol
  2. download the packages `yarn install`
  3. start the application on port 4000 `yarn start`
  4. open the application on [http://localhost:4000](http://localhost:4000)
+
+ ## Deployment
+
+ The Application is available on Azure, at the following URLs:
+
+  - Web Application [Azure link]()
