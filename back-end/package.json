@@ -5,13 +5,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "body-parse": "^0.1.0",
     "concurrently": "^7.6.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
     "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.22.0",
     "swagger-ui-express": "^4.6.0"
   },
   "scripts": {
-    "start": "nodemon app"
+    "start": "node ./swagger.js && nodemon app",
+    "swagger": "node ./swagger.js"
   }
 }

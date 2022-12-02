@@ -1,0 +1,205 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Kinder Tracker API 1.0",
+    "description": "Kinder Tracker Open API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/messages/": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Return a Message",
+        "description": "Return a message property with some string",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Register a User",
+        "description": "Register a new User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "The User to be registered",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@domain.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "*****"
+                },
+                "firstname": {
+                  "type": "string",
+                  "example": "John"
+                },
+                "lastname": {
+                  "type": "string",
+                  "example": "Doe"
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "firstname",
+                "lastname"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/validate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Validate a User",
+        "description": "Validate a new User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "body",
+            "description": "The validation code",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@domain.com"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "*****"
+                }
+              },
+              "required": [
+                "email",
+                "code"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/forgot": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Forgot a Password",
+        "description": "Forgot a Password",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "forgot",
+            "in": "body",
+            "description": "The email of the disabled account",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@domain.com"
+                }
+              },
+              "required": [
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login a User",
+        "description": "Login a User",
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "login",
+            "in": "body",
+            "description": "The credentials",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@domain.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "*****"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "scheme": [
+    "http"
+  ]
+}

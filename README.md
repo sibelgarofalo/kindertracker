@@ -37,3 +37,5 @@ The Back-end is built using `yarn` and you can run it and build it using the fol
 
   - Web Application [Azure link](https://kindertracker.azurewebsites.net/)
   - Public API [Azure link](https://kindertracker-api.azurewebsites.net/api-docs/)
+
+  ![Architecture.png](Architecture.png)
