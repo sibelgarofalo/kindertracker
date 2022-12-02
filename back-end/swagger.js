@@ -1,5 +1,5 @@
 /** auto-swagger */
-const swaggerAutogen = require("swagger-autogen")();
+const swaggerAutogen = require("swagger-autogen")({openapi: '3.0.0'});
 const outputFile = "./swagger-output.json";
 const endpointFiles = ["./app.js"];
 const swaggerConfig = {
@@ -7,8 +7,16 @@ const swaggerConfig = {
     title: 'Kinder Tracker API 1.0',
     description: 'Kinder Tracker Open API Documentation'
   },
-  host: 'localhost:4000',
-  scheme: ['http']
+  servers: [
+    {
+      url: "http://localhost:4000/",
+      description: "Local development"
+    },
+    {
+      url: "https://kindertracker-api.azurewebsites.net/",
+      description: "Azure deployment"
+    }
+  ],
 };
 
 // generate
