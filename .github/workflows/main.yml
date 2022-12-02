@@ -22,13 +22,31 @@ jobs:
             context: ./front-end
             push: true
             tags: ${{ secrets.ACR_ENDPOINT }}/frontend:latest
-  restart_frontend:
-    name: restart front-end
+  docker_backend:
+    name: docker back-end
     runs-on: ubuntu-18.04
-    needs: docker_frontend
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        - name: Log into registry
+          uses: docker/login-action@v1
+          with:
+            registry: ${{ secrets.ACR_ENDPOINT }}
+            username: ${{ secrets.ACR_USERNAME }}
+            password: ${{ secrets.ACR_PASSWORD }}
+        - name: Build & Push
+          uses: docker/build-push-action@v3
+          with:
+            context: ./back-end
+            push: true
+            tags: ${{ secrets.ACR_ENDPOINT }}/backend:latest
+  restart:
+    name: restart
+    runs-on: ubuntu-18.04
+    needs: [docker_frontend, docker_backend]
     steps:
         - uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
         - run: |
-            az container restart --name kindertracker-frontend --resource-group kinder-tracker
+            az resource list --name kinder-tracker
