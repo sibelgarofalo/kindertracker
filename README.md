@@ -36,4 +36,4 @@ The Back-end is built using `yarn` and you can run it and build it using the fol
  The Application is available on Azure, at the following URLs:
 
   - Web Application [Azure link](https://kindertracker.azurewebsites.net/)
-  - Public API [Azure link]()
+  - Public API [Azure link](https://kindertracker-api.azurewebsites.net/api-docs/)
