@@ -8,7 +8,9 @@ import {
 import {
     Login,
     Register,
-    Dashboard
+    Dashboard,
+    Forgot,
+    Verification
 } from '../../pages';
 
 const router = createBrowserRouter([
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
     {
         path: '/register',
         element: <Register />
+    },
+    {
+        path: '/forgot',
+        element: <Forgot />
+    },
+    {
+        path: '/verification',
+        element: <Verification />
     }
 ])
 

@@ -1,4 +1,3 @@
-/** imports */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,11 +11,10 @@ import {
  
 } from 'evergreen-ui';
 
-const Login = () => {
+const Forgot = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
+   
 
     return (
         <Pane display="flex" flexDirection="column">
@@ -48,34 +46,16 @@ const Login = () => {
                             value={email}
                             onChange={(args) => setEmail(args.target.value)}
                         />
-                        <TextInputField
-                            label="Password"
-                            description="Enter your password"
-                            placeholder="password"
-                            value={password} 
-                            onChange={(args) => setPassword(args.target.value)}
-                        />
+                       
                         <Button 
                         type='submit' 
                         appearance="primary" 
                         width="100%"
-                        onClick={() => navigate('/login')}>
-                            LOGIN
+                        onClick={() => navigate('/verification')}>
+                            SEND
                         </Button>
 
-                        <Pane
-                            display="flex"
-                            flexDirection="row"
-                            justifyContent="space-between"
-                            marginTop={91}>
-
-                            <Button onClick={() => navigate('/forgot')}>
-                                FORGOT
-                            </Button>
-                            <Button onClick={() => navigate('/register')}>
-                                REGISTER
-                            </Button>
-                        </Pane>
+                        
                     </form>
                 </Pane>
 
@@ -92,4 +72,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Forgot;
