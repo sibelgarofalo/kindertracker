@@ -15,17 +15,28 @@ const swaggerDocument = require('./swagger-output.json');
 
 /** bootstrap */
 const app = express();
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 const port = process.env.PORT || 4000;
 
 /** swagger */
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 /** routing */
 app.use('/messages', messageRouter);
 app.use('/auth', authRouter);
+
+/** error */
+const failSafeHandler = (err, req, res, next) => {
+  console.error('\x1b[31m', err);
+  res.header("Content-Type", 'application/json');
+  res.status(500).json({
+    error: {message: err.message, status: 500}
+  });
+}
+app.use(failSafeHandler);
 
 /** console logger */
 app.listen(port, () => {

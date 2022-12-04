@@ -41,9 +41,6 @@
         ],
         "summary": "Register a User",
         "description": "Register a new User",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "user",
@@ -81,6 +78,32 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  },
+                  "firstname": {
+                    "example": "any"
+                  },
+                  "lastname": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
