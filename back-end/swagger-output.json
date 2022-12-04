@@ -108,83 +108,6 @@
         }
       }
     },
-    "/auth/validate": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Validate a User",
-        "description": "Validate a new User",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "code",
-            "in": "body",
-            "description": "The validation code",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string",
-                  "example": "email@domain.com"
-                },
-                "code": {
-                  "type": "string",
-                  "example": "*****"
-                }
-              },
-              "required": [
-                "email",
-                "code"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/forgot": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Forgot a Password",
-        "description": "Forgot a Password",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "forgot",
-            "in": "body",
-            "description": "The email of the disabled account",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string",
-                  "example": "email@domain.com"
-                }
-              },
-              "required": [
-                "email"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/auth/login": {
       "post": {
         "tags": [
@@ -192,9 +115,6 @@
         ],
         "summary": "Login a User",
         "description": "Login a User",
-        "produces": [
-          "application/x-www-form-urlencoded"
-        ],
         "parameters": [
           {
             "name": "login",
@@ -222,6 +142,26 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
